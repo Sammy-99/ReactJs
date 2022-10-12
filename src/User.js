@@ -1,18 +1,16 @@
-import React, {Component} from "react";
+import React, { forwardRef } from "react";
 
-class User extends Component{
-
-    componentWillUnmount(){
-		console.log(" will unmount");
-	}
-
-    render(){
-        return(
-            <>
-            <p>I am from User Class</p>
-            </>
-        )
-    }
+function User(props) {
+    return (
+        <>
+            <td> {props.name} </td>
+            <td> {props.email} </td>
+            <td> {props.city} </td>
+            <td>
+                <button onClick={() => props.showData(props.index)}>show data</button>
+            </td>
+        </>
+    );
 }
 
-export default User;
+export default forwardRef(User);

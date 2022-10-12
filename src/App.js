@@ -1,37 +1,43 @@
-import './App.css';
-import React from 'react';
-import User from './User';
+import "./App.css";
+import React, { useRef, useState } from "react";
+import User from "./User";
 
-class App extends React.Component{
+function App() {
+    const users = [
+        { name: "Samir Ahamad", email: "samir@gmail.com", city: "MZN" },
+        { name: "Ravi Kumar", email: "ravi@gmail.com", city: "Jhajjar" },
+        { name: "Vijay Pal", email: "vijay@gmail.com", city: "Noida" },
+        { name: "Ebrahim", email: "ebrahim@gmail.com", city: "Shamli" },
+        { name: "Sammy", email: "sammy@gmail.com", city: "Bijnor" },
+    ];
 
-	constructor(){
-		super();
-		this.state = {
-			count : 1,
-			email : 'Samir@gmail.com',
-			status : true
-		}
+	function showData(id){
+		let name = users[id].name;
+		let email = users[id].email;
+		let city = users[id].city;
+		alert(name + email + city);
 	}
 
-	componentDidMount(){
-		console.log("componentDidMount");
-		// alert("aaaa")
-	}
-
-	componentDidUpdate(){
-		console.log(" did update ");
-	}
-
-	render(){
-		return(
-			<div>
-				{this.state.status ? <User /> : <h1>Component removed</h1> }
-				<h2>Counter : {this.state.count}</h2>
-				<h3>My name is {this.state.name} and my email is {this.state.email}</h3>
-				<button onClick={()=>this.setState({status : !this.state.status})} >click me</button>
-			</div>
-		)
-	}
+    return (
+        <div>
+            <h2> User Data </h2>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>City</th>
+						<th>Action</th>
+                    </tr>
+                    {users.map((item, i) => (
+                        <tr key={i}>
+                            <User showData={showData} name={item.name} email={item.email} city={item.city} index={i} />
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default App;
