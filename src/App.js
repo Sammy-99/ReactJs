@@ -5,6 +5,7 @@ import UserAddress from "./User";
 function App() {
 
 	console.log("this is life cycle method");
+	console.log("this time from master branch")
 
 }
 
