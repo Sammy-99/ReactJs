@@ -4,15 +4,8 @@ import UserAddress from "./User";
 
 function App() {
 
-	function test(){
-		return "this is test function";
-	}
+	console.log("this is life cycle method");
 
-    return (
-        <div className='App'>
-			<UserAddress myFn={test} />
-        </div>
-    );
 }
 
 export default App;
