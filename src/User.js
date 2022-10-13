@@ -1,16 +1,21 @@
-import React, { forwardRef } from "react";
+import {useEffect, useRef} from "react";
+import { Button } from 'react-bootstrap';
+import React from "react";
 
 function User(props) {
+    const lastVal = useRef();
+    const preValue = lastVal.current;
+
+    useEffect(() => {
+        lastVal.current = props.count;
+    });
+
     return (
         <>
-            <td> {props.name} </td>
-            <td> {props.email} </td>
-            <td> {props.city} </td>
-            <td>
-                <button onClick={() => props.showData(props.index)}>show data</button>
-            </td>
+           <h4>current is : {props.count}</h4>
+           <h4>previous value : {preValue}</h4>
         </>
     );
 }
 
-export default forwardRef(User);
+export default User;
