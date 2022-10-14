@@ -1,18 +1,28 @@
 import "./App.css";
-import React, { useRef, useState, useEffect } from "react";
-import User from "./User";
-import { Button } from "react-bootstrap";
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import About from "./Components/About";
+import Home from "./Components/Home";
+import {Contact} from "./Components/Contact";
+import Author from "./Components/Author";
 
 function App() {
-    const [count, setCount] = React.useState(0);
     return (
-        <div >
-            <User count={count} />
-            <button
-                onClick={() => { setCount(Math.floor(Math.random() * 10)); }}
-            >
-                Update Counter
-            </button>
+        <div>
+            <h1>Routing</h1>
+            <BrowserRouter>
+                    <Link to="/" >Home</Link> <br />
+                    <Link to="/about" >About</Link><br />
+                    <Link to="/contact" >Contact</Link>
+                   
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/about" element={<About />}>
+                        <Route path="author" element={<Author />} /> 
+                    </Route>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

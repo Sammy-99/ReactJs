@@ -1,21 +1,21 @@
-import {useEffect, useRef} from "react";
-import { Button } from 'react-bootstrap';
-import React from "react";
+import './App.css';
+import React,{useEffect, useState} from 'react';
 
 function User(props) {
-    const lastVal = useRef();
-    const preValue = lastVal.current;
+    const [data, setData] = useState('Ahamad');
+  useEffect(()=>{
+    console.warn("use effect is called")
+  },[props.count]);
 
-    useEffect(() => {
-        lastVal.current = props.count;
-    });
+  return (
+    <div className="App">
+      <h1>Data : {props.data}</h1>
+      <h1>Count : {props.count}</h1>
+      <button onClick={() => setState('sam')} >Click</button>
+    
 
-    return (
-        <>
-           <h4>current is : {props.count}</h4>
-           <h4>previous value : {preValue}</h4>
-        </>
-    );
+    </div>
+  );
 }
 
 export default User;
