@@ -7,20 +7,21 @@ import {Contact} from "./Components/Contact";
 import Author from "./Components/Author";
 
 function App() {
+    let users = [
+        {id : 1, name : "sam"},
+        {id : 2, name : "sammy"},
+        {id : 3, name : "khan"}
+    ];
     return (
         <div>
             <h1>Routing</h1>
             <BrowserRouter>
-                    <Link to="/" >Home</Link> <br />
-                    <Link to="/about" >About</Link><br />
-                    <Link to="/contact" >Contact</Link>
-                   
+                {users.map(user => (
+                    <Link to={"contact/" + user.id + "/" + user.name} state={{userId : user.id}}> {user.name} </Link>
+                ))}
+
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/about" element={<About />}>
-                        <Route path="author" element={<Author />} /> 
-                    </Route>
+                    <Route path="/contact/:id/:name" element={<Contact />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
