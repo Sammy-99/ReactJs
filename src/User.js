@@ -1,19 +1,17 @@
 import './App.css';
 import React,{useEffect, useState} from 'react';
+import { Form } from "react-bootstrap";
 
 function User(props) {
-    const [data, setData] = useState('Ahamad');
-  useEffect(()=>{
-    console.warn("use effect is called")
-  },[props.count]);
 
   return (
-    <div className="App">
-      <h1>Data : {props.data}</h1>
-      <h1>Count : {props.count}</h1>
-      <button onClick={() => setState('sam')} >Click</button>
-    
+    <div >  
+        <Form>
+            {/* <input type="text" onChange={(e) => setFirstName(e.target.value)} />
+            <input type="text" onChange={(e) => setLastName(e.target.value)} />
+            <input type="text" onChange={(e) => setEmail(e.target.value)} /> */}
 
+        </Form>
     </div>
   );
 }
