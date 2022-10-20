@@ -1,16 +1,14 @@
 import './App.css';
-import { useState } from "react";
-import UserAddress from "./User";
+import React from "react";
+import RegForm from './RegForm';
 
 function App() {
 
-	function test(){
-		return "this is test function";
-	}
+    
 
     return (
-        <div className='App'>
-			<UserAddress myFn={test} />
+        <div>
+            <RegForm />           
         </div>
     );
 }
